@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="tareas_rickmorty_tree" model="ir.ui.view">
+        <field name="name">tareas.rickmorty.tree</field>
+        <field name="model">tareas.rickmorty</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="titulo"/>
+                <field name="estado"/>
+                <field name="fecha_vencimiento"/>
+                <field name="id_personaje"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="tareas_rickmorty_form" model="ir.ui.view">
+        <field name="name">tareas.rickmorty.form</field>
+        <field name="model">tareas.rickmorty</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="titulo"/>
+                        <field name="descripcion"/>
+                        <field name="fecha_vencimiento"/>
+                        <field name="estado"/>
+                        <field name="id_personaje"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_tareas_rickmorty" model="ir.actions.act_window">
+        <field name="name">Tareas RickMorty</field>
+        <field name="res_model">tareas.rickmorty</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_tareas_rickmorty" name="Tareas RickMorty" action="action_tareas_rickmorty"/>
+</odoo>

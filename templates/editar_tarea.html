@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head><title>Editar Tarea</title></head>
+<body>
+    <h1>Editar Tarea</h1>
+    <form method="POST">
+        Título: <input type="text" name="titulo" value="{{ tarea.titulo }}"><br>
+        Descripción: <textarea name="descripcion">{{ tarea.descripcion }}</textarea><br>
+        Fecha Vencimiento: <input type="date" name="fecha_vencimiento" value="{{ tarea.fecha_vencimiento }}"><br>
+        Estado: <select name="estado">
+            <option {% if tarea.estado == 'Pendiente' %}selected{% endif %}>Pendiente</option>
+            <option {% if tarea.estado == 'En progreso' %}selected{% endif %}>En progreso</option>
+            <option {% if tarea.estado == 'Completada' %}selected{% endif %}>Completada</option>
+        </select><br>
+        <input type="submit" value="Guardar">
+    </form>
+</body>
+</html>

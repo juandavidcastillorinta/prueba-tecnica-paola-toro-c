@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head><title>Tareas</title></head>
+<body>
+    <h1>Tus Tareas</h1>
+    <a href="/crear_tarea">Crear Nueva Tarea</a> | <a href="/personajes">Ver Personajes</a> | <a href="/logout">Logout</a>
+    <ul>
+        {% for item in tareas %}
+            <li>
+                {{ item.tarea.titulo }} - {{ item.tarea.estado }} 
+                {% if item.personaje %}
+                    - Personaje: {{ item.personaje.nombre }} <img src="{{ item.personaje.imagen }}" width="50">
+                {% endif %}
+                <a href="/editar_tarea/{{ item.tarea.id }}">Editar</a> |
+                <a href="/eliminar_tarea/{{ item.tarea.id }}">Eliminar</a> |
+                <a href="/enviar_a_odoo/{{ item.tarea.id }}">Enviar a Odoo</a>
+            </li>
+        {% endfor %}
+    </ul>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+</body>
+</html>

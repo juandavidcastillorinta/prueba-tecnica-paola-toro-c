@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head><title>Personajes Rick and Morty</title></head>
+<body>
+    <h1>Personajes</h1>
+    <ul>
+        {% for pers in personajes %}
+            <li>
+                {{ pers.name }} - {{ pers.species }} - {{ pers.status }}
+                <img src="{{ pers.image }}" width="50">
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="/tareas">Volver a Tareas</a>
+</body>
+</html>
